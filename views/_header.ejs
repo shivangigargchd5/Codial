@@ -1,1 +1,26 @@
-<header>I am Header</header>
+<header>
+    <div id="nav">
+        <div id="logo">
+            <h2>Codial</h2>
+        </div>
+        <div id="nav-links">
+            <% if(locals.user){ %>
+                <div class="link">
+                    <a href="/users/profile" style="text-decoration: none; color:lightgrey;">
+                        <%= user.name %>
+                    </a>
+                </div>
+                <div class="link">
+                    <a href="/users/sign-out" style="text-decoration: none; color:lightgrey;">Sign Out</a>
+                </div>
+                <% } else{ %>
+                    <div class="link">
+                        <a href="/users/sign-in" style="text-decoration: none; color:lightgrey;">Sign In</a>
+                    </div>
+                    <div class="link">
+                        <a href="/users/sign-up" style="text-decoration: none; color:lightgrey;">Sign Up</a>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+</header>

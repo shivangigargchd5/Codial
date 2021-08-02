@@ -1,0 +1,16 @@
+#nav {
+  display: flex;
+  background-color: cadetblue;
+  justify-content: space-between; }
+
+#nav-links {
+  display: flex;
+  flex-direction: row; }
+
+.link {
+  color: lightgrey;
+  font-size: 26px;
+  text-decoration: none;
+  padding-right: 10px;
+  padding-top: 15px;
+  background-color: #447274; }

@@ -1,0 +1,12 @@
+#foot {
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: horizontal;
+  padding: 40px; }
+
+#logo2 {
+  font-size: 25px; }
+
+.links {
+  font-size: 20px;
+  margin-left: 100px; }
