@@ -3,9 +3,35 @@
     <h1>Hello this is the title of the page: <%= title %></h1>
 
  <h2>Posts</h2>
- <form action="/new-post" method="POST" id="new-post">
+ <% if(locals.user){ %>
+ <form action="/post/create" method="POST" id="new-post">
      <textarea name="content" placeholder="Start typing" rows="10" cols="30"></textarea><br><br>
      <input type="submit" value="Post">
- </form>   
+ </form>  
+ <% } %>
+<ul> 
+<% for(let i of post){ %>
+    <li><%= i.content %>
+        <p><%= i.user.name %></p>
+        <% if(locals.user){ %>
+            <form action="/comment/create" method="POST">
+                <textarea name="content" cols="22" rows="2"></textarea><br>
+                <input type="hidden" name="post" value="<%= i._id %>"> 
+                <input type="submit" value="Add a Comment">
+
+            </form>
+            <% } %>
+            <ul>
+                <% for(j of i.comment){ %>
+                    <li>
+                        <p><%= j.content %></p>
+                        <p><%= j.user.name %></p>
+                    </li>
+                    <% } %>
+            </ul>
+    </li><br>
+ 
+<% } %>
 
  </div>
+</ul>

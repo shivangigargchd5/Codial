@@ -1,7 +1,17 @@
+const User = require('../models/user');
+const Post = require('../models/post');
+
 module.exports.home = function(req,res){
-    console.log(req.cookies);
-    res.cookie('user_id',30);
-    return res.render('home',{
-        title:"Home Page"
-    });
+  Post.find({}).populate('user').populate({
+    path:'comment',
+    populate:{
+      path:'user'
+    }
+  }).exec(function(err,posts){
+      return res.render('home',{
+          title:"Home Page",
+          post:posts
+      })
+  })
 }
+
